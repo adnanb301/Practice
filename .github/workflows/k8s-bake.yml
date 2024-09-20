@@ -1,0 +1,12 @@
+- uses: azure/k8s-bake@v3
+   with:
+      renderEngine: 'helm'
+      helmChart: './aks-helloworld/'
+      arguments: |
+          --ca-file
+          ./ca-file/
+      overrideFiles: './aks-helloworld/values-override.yaml'
+      overrides: |
+          replicas:2
+      helm-version: 'latest'
+      silent: 'false'
